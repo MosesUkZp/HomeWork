@@ -28,7 +28,7 @@ public class Main {
         }
 
                 System.out.println(Arrays.toString(sportsmen));
-
+        System.out.println(Arrays.toString(sportsmen));
 
 
 
