@@ -24,26 +24,48 @@ public class MetodsOfHWCollection {
 
 //Zadacha 2
 
-    List<Character> characterList() {
+    boolean characterList() {
 
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите уровнение: ");
         String string = scanner.nextLine();
 
-        List<Character> characterList = new ArrayList<>();
+        LinkedList<Character> characterList = new LinkedList<>();
         System.out.println(string);
-        for (char c : string.toCharArray()) {
-            characterList.add(c);
-        }
-            if (Collections.frequency(characterList, '(') == Collections.frequency(characterList, ')')
-            &&(Collections.frequency(characterList, '[') == Collections.frequency(characterList, ']'))
-            &&(Collections.frequency(characterList, '{') == Collections.frequency(characterList, '}'))) {
-                System.out.println("Ввод уровнения - правильный!");
-            }else
-                System.out.println("Ввод уровнения - неправильный! Ошибка в закрытии скобок.");
+        for (int i = 0; i < string.length(); i++) {
+            char current = string.charAt(i);
+            if (current == '{' || current == '(' || current == '[') {
+               characterList.push(current);
+            }
+            if (current == '}' || current == ')' || current == ']') {
+                if (characterList.isEmpty())
+                    return false;
 
-        return characterList;
-     }
+                char last = characterList.peek();
+                if (current == '}' && last == '{' || current == ')' && last == '(' || current == ']' && last == '[')
+                    characterList.pop();
+                else
+                    return false;
+            }
+
+        }
+
+        return characterList.isEmpty();
+    }
+//        for (char c : string.toCharArray()) {
+//            characterList.add(c);
+//        }
+//            if (Collections.frequency(characterList, '(') == Collections.frequency(characterList, ')')
+//            &&(Collections.frequency(characterList, '[') == Collections.frequency(characterList, ']'))
+//            &&(Collections.frequency(characterList, '{') == Collections.frequency(characterList, '}'))) {
+//                System.out.println("Ввод уровнения - правильный!");
+//            }else
+//                System.out.println("Ввод уровнения - неправильный! Ошибка в закрытии скобок.");
+//
+//        return characterList;
+//     }
+
+
 }
 
 
