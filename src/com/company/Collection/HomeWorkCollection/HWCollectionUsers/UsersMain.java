@@ -22,11 +22,8 @@ public class UsersMain {
         }
         }
 
-
-            usersList.forEach(System.out::println);
-            usersList.sort(new UsersComparator());
-            System.out.println(usersList);
-
+        usersList.sort(new UsersComparator());
+        usersList.forEach(System.out::println);
 
     }
 }

@@ -1,8 +1,10 @@
 package com.company.Collection.HomeWorkCollection.HWCollectionUsers;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-public class Users  {
+public class Users {
 
     private Long Id;
     private String Name;
@@ -47,6 +49,7 @@ public class Users  {
     public int hashCode() {
         return Objects.hash(Id, Name);
     }
+
 }
 
 
